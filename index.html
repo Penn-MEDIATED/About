@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Partners - Penn MEDIATED</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:       #011F5B;
+    --navy-mid:   #1a3a7a;
+    --blue-card:  #eef2fb;
+    --blue-card-border: #d0daf2;
+    --gold:       #f2c100;
+    --gold-light: #fef9e0;
+    --white:      #ffffff;
+    --text:       #1a1a1a;
+    --muted:      #666666;
+    --label:      #888888;
+    --border:     #e0e0e0;
+    --link-blue:  #0055A4;
+    --max-width:  1140px;
+    --font-serif: 'Merriweather', Georgia, 'Times New Roman', serif;
+    --font-sans:  'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-sans);
+    color: var(--text);
+    background: var(--white);
+    line-height: 1.7;
+  }
+  a { color: var(--navy); text-decoration: underline; }
+  a:hover { color: var(--gold); }
+  img { max-width: 100%; display: block; }
+
+  /* ─── Hero ─── */
+  .hero {
+    background: #ffffff;
+    border-bottom: 3px solid var(--gold);
+    padding: 52px 24px 44px;
+  }
+  .hero-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .hero .eyebrow {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+  .hero h1 {
+    font-family: var(--font-serif);
+    font-size: 2.6rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--navy);
+    margin-bottom: 14px;
+    max-width: 640px;
+  }
+  .hero p {
+    font-family: var(--font-sans);
+    font-size: 1.175rem;
+    color: #444;
+    max-width: 640px;
+    line-height: 1.7;
+  }
+
+  /* ─── Main Layout ─── */
+  main {
+    max-width: var(--max-width);
+    margin: 44px auto;
+    padding: 0 24px;
+  }
+
+  section.block { margin-bottom: 60px; }
+  section.block:last-child { margin-bottom: 0; }
+  section.block h2 {
+    font-family: var(--font-serif);
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+  section.block p.lede {
+    font-family: var(--font-sans);
+    font-size: 1.05rem;
+    color: var(--muted);
+    max-width: 720px;
+    margin-bottom: 28px;
+    line-height: 1.7;
+  }
+  section.block h2 + .founding-card,
+  section.block h2 + .grid { margin-top: 20px; }
+
+  /* ─── Founding / Featured Partner Cards ─── */
+  .founding-card {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    background: var(--blue-card);
+    border: 1px solid var(--blue-card-border);
+    border-top: 3px solid var(--navy-mid);
+    padding: 32px;
+    flex-wrap: wrap;
+    transition: box-shadow 0.15s;
+    text-decoration: none;
+    color: inherit;
+  }
+  .founding-card:hover { box-shadow: 0 4px 18px rgba(26,39,68,0.10); }
+  .founding-card img { height: 64px; max-width: 200px; object-fit: contain; }
+  .founding-card .founding-text { flex: 1; min-width: 260px; }
+  .founding-card h3 {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    color: var(--navy);
+    font-size: 1.2rem;
+    margin: 0 0 8px;
+  }
+  .founding-card p {
+    font-family: var(--font-sans);
+    color: #333;
+    margin: 0;
+    line-height: 1.65;
+  }
+  .founding-card + .founding-card { margin-top: 20px; }
+
+  .founding-card.stacked { flex-direction: column; align-items: stretch; }
+  .founding-card-header {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .founding-card .nested-grid {
+    margin-top: 24px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+  .nested-grid .card {
+    padding: 20px 16px;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+  }
+  .nested-grid .card .card-logo {
+    height: 52px;
+    max-width: 100%;
+    margin-bottom: 0;
+  }
+  /* SEAS logo is a taller/narrower mark than its siblings — scale it up so its
+     rendered width is visually consistent with the other school logos */
+  .nested-grid .card img[src="SEAS Logo.png"] {
+    height: 72px;
+  }
+
+  @media (max-width: 720px) {
+    .founding-card .nested-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* ─── Card Grid ─── */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 14px;
+  }
+  .card {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    padding: 18px 20px;
+    transition: box-shadow 0.15s ease, border-color 0.15s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .card:hover {
+    box-shadow: 0 4px 16px rgba(1,31,91,0.12);
+    border-color: var(--blue-card-border);
+  }
+  .card h4 {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    color: var(--navy);
+    font-size: 0.95rem;
+    margin: 0;
+    line-height: 1.35;
+  }
+  .card a.visit {
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--navy);
+    text-decoration: none;
+    margin-top: auto;
+  }
+  .card a.visit:hover { color: var(--gold); }
+  .card .card-logo {
+    height: 34px;
+    max-width: 140px;
+    object-fit: contain;
+    margin-bottom: 4px;
+  }
+  .card.logo-only {
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 24px 16px;
+  }
+  .card.logo-only .card-logo {
+    height: 54px;
+    max-width: 100%;
+    margin-bottom: 0;
+  }
+  /* Some logos (e.g. CSSLab) are light gray/blue on a transparent background and
+     disappear on white — give those a dark backdrop so they stay legible */
+  .card.logo-only.dark-card {
+    background: var(--navy);
+    border-color: var(--navy);
+  }
+  .card.logo-only.dark-card:hover { border-color: var(--gold); }
+  /* Polarization Research Lab's wordmark is also white-on-transparent, but a
+     light gray backdrop (rather than navy) gives it enough contrast to read */
+  .card.logo-only.light-card {
+    background: #bdbdbd;
+    border-color: #bdbdbd;
+  }
+  .card.logo-only.light-card:hover { border-color: var(--gold); }
+  /* Andrea Mitchell Center mark is a detailed square seal — needs to render
+     larger than the other logos to stay legible. Padding is tightened so the
+     card's overall footprint still matches its neighbors. */
+  .card.logo-only.tight-pad {
+    padding: 8px 16px;
+  }
+  .card.logo-only.tight-pad .card-logo {
+    height: 84px;
+  }
+
+  @media (max-width: 640px) {
+    .hero { padding: 40px 20px 32px; }
+    .hero h1 { font-size: 2rem; }
+    .hero p { font-size: 1rem; }
+    main { padding: 0 16px; margin: 32px auto; }
+    .founding-card { padding: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Penn MEDIATED</div>
+    <h1>Our Partners</h1>
+    <p>Penn MEDIATED brings together funders, schools, and allied research centers across the University of Pennsylvania to advance the science of the information ecosystem and strengthen the foundations of democracy.</p>
+  </div>
+</div>
+
+<main>
+
+  <section class="block">
+    <h2>Founding Partners</h2>
+    <a class="founding-card" href="https://knightfoundation.org/" target="_blank" rel="noopener">
+      <img src="KF.png" alt="John S. and James L. Knight Foundation">
+      <div class="founding-text">
+        <h3>John S. and James L. Knight Foundation</h3>
+        <p>A founding investment that established Penn MEDIATED as Penn's interdisciplinary hub for media, technology, and democracy research.</p>
+      </div>
+    </a>
+
+    <div class="founding-card stacked">
+      <div class="founding-card-header">
+        <img src="Penn Full Logo.png" alt="University of Pennsylvania">
+        <div class="founding-text">
+          <h3>University of Pennsylvania</h3>
+          <p>An additional $5 million in combined resources comes from seven schools and centers across Penn, which together form the interdisciplinary core of the Center.</p>
+        </div>
+      </div>
+      <div class="grid nested-grid">
+        <a class="card" href="https://www.engineering.upenn.edu/" target="_blank" rel="noopener"><img class="card-logo" src="SEAS Logo.png" alt="Penn Engineering"></a>
+        <a class="card" href="https://www.sas.upenn.edu/" target="_blank" rel="noopener"><img class="card-logo" src="SAS Logo.png" alt="Penn Arts &amp; Sciences"></a>
+        <a class="card" href="https://www.asc.upenn.edu/" target="_blank" rel="noopener"><img class="card-logo" src="ASC Logo.png" alt="Annenberg School for Communication"></a>
+        <a class="card" href="https://www.wharton.upenn.edu/" target="_blank" rel="noopener"><img class="card-logo" src="Wharton Logo.png" alt="Wharton School"></a>
+        <a class="card" href="https://www.law.upenn.edu/" target="_blank" rel="noopener"><img class="card-logo" src="Penn Carey Law Logo.png" alt="Penn Carey Law"></a>
+        <a class="card" href="https://sp2.upenn.edu/" target="_blank" rel="noopener"><img class="card-logo" src="SP2 Logo.png" alt="School of Social Policy &amp; Practice"></a>
+        <a class="card" href="https://www.annenbergpublicpolicycenter.org/" target="_blank" rel="noopener"><img class="card-logo" src="appc logo.png" alt="Annenberg Public Policy Center"></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>External Partners</h2>
+    <p class="lede">Penn MEDIATED collaborates  with an array of expert, non-academic partners that are dedicated to addressing the complex challenges impacting the information ecosystem and democracy.</p>
+    <div class="grid">
+      <a class="card logo-only" href="https://globalnetworkinitiative.org/" target="_blank" rel="noopener"><img class="card-logo" src="logo-gni.svg" alt="Global Network Initiative"></a>
+      <a class="card logo-only" href="https://dfrlab.org/" target="_blank" rel="noopener"><img class="card-logo" src="DFRLab logo.png" alt="Atlantic Council Digital Forensic Research Lab"></a>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>Associated Research Centers at Penn</h2>
+    <p class="lede">Penn MEDIATED works alongside a deep bench of related centers and labs across the university studying computational social science, the information ecosystem, and democracy.</p>
+    <div class="grid">
+      <a class="card logo-only dark-card" href="https://css.seas.upenn.edu/" target="_blank" rel="noopener"><img class="card-logo" src="CSSLab Logo.png" alt="Computational Social Science Lab"></a>
+      <a class="card logo-only" href="https://pennhci.com/" target="_blank" rel="noopener"><img class="card-logo" src="HCI logo.svg" alt="Penn Human Computer Interaction"></a>
+      <a class="card logo-only tight-pad" href="https://amc.sas.upenn.edu/" target="_blank" rel="noopener"><img class="card-logo" src="AM Center for Study of Democracy .png" alt="Andrea Mitchell Center for Democracy"></a>
+      <a class="card logo-only" href="https://www.asc.upenn.edu/research/centers/center-for-information-networks-and-democracy" target="_blank" rel="noopener"><img class="card-logo" src="CIND Logo.svg" alt="Center for Information Networks and Democracy"></a>
+      <a class="card logo-only" href="https://perryworldhouse.upenn.edu/" target="_blank" rel="noopener"><img class="card-logo" src="PWH Logo.svg" alt="Perry World House"></a>
+      <a class="card logo-only" href="https://pores.upenn.edu" target="_blank" rel="noopener"><img class="card-logo" src="PORES Logo.png" alt="Program on Opinion Research and Election Studies"></a>
+      <a class="card logo-only" href="https://www.asc.upenn.edu/research/centers/media-inequality-and-change-center/about" target="_blank" rel="noopener"><img class="card-logo" src="MIC Logo.svg" alt="Media, Inequality, and Change Center"></a>
+      <a class="card logo-only light-card" href="https://polarizationresearchlab.org/" target="_blank" rel="noopener"><img class="card-logo" src="Polarization Research Lab Logo.png" alt="Polarization Research Lab"></a>
+      <a class="card logo-only" href="https://www.asc.upenn.edu/research/centers/safe-lab" target="_blank" rel="noopener"><img class="card-logo" src="SAFELab Logo.svg" alt="SAFELab"></a>
+      <a class="card logo-only tight-pad" href="https://warrencenter.upenn.edu/" target="_blank" rel="noopener"><img class="card-logo" src="Warren Center Logo.png" alt="Warren Center for Network and Data Sciences"></a>
+    </div>
+  </section>
+
+</main>
+
+</body>
+</html>
