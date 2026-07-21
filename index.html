@@ -322,5 +322,35 @@
 
 </main>
 
+<script>
+  // Reports this page's real height to a parent window embedding it via
+  // <iframe>, so the parent can auto-resize the iframe to fit — no fixed
+  // height guessing needed on the WordPress side.
+  (function () {
+    if (window.self === window.top) return; // not embedded, nothing to do
+
+    function postHeight() {
+      var height = Math.max(
+        document.documentElement.scrollHeight,
+        document.body.scrollHeight
+      );
+      window.parent.postMessage(
+        { type: 'partners-page-resize', height: height },
+        '*'
+      );
+    }
+
+    window.addEventListener('load', postHeight);
+    window.addEventListener('resize', postHeight);
+
+    if (window.ResizeObserver) {
+      new ResizeObserver(postHeight).observe(document.body);
+    } else {
+      // Fallback for older browsers: poll briefly after load
+      setInterval(postHeight, 500);
+    }
+  })();
+</script>
+
 </body>
 </html>
