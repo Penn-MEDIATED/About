@@ -40,7 +40,7 @@
   /* ─── Hero ─── */
   .hero {
     background: #ffffff;
-    border-bottom: 3px solid var(--gold);
+    border-bottom: 2px solid var(--blue-card-border);
     padding: 52px 24px 44px;
   }
   .hero-inner {
@@ -66,12 +66,47 @@
     margin-bottom: 14px;
     max-width: 640px;
   }
+  .hero-subhead {
+    font-family: var(--font-serif);
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 16px;
+  }
   .hero p {
     font-family: var(--font-sans);
     font-size: 1.175rem;
     color: #444;
-    max-width: 640px;
+    max-width: 960px;
     line-height: 1.7;
+  }
+  .hero p + p { margin-top: 16px; }
+
+  /* ─── Pull Quote ─── */
+  .quote-box {
+    margin-top: 24px;
+    max-width: 960px;
+    background: #fdfaf4;
+    border-left: 4px solid var(--gold);
+    padding: 24px 28px;
+  }
+  .quote-box p {
+    font-family: var(--font-serif);
+    font-size: 0.95rem;
+    font-weight: 700;
+    font-style: italic;
+    color: var(--navy);
+    line-height: 1.55;
+    margin: 0;
+  }
+  .quote-box a {
+    font-style: normal;
+    color: var(--link-blue);
+  }
+  .quote-box a:hover { color: var(--gold); }
+
+  @media (max-width: 640px) {
+    .quote-box { padding: 20px 22px; }
   }
 
   /* ─── Main Layout ─── */
@@ -94,7 +129,7 @@
     font-family: var(--font-sans);
     font-size: 1.05rem;
     color: var(--muted);
-    max-width: 720px;
+    max-width: 960px;
     margin-bottom: 28px;
     line-height: 1.7;
   }
@@ -106,6 +141,7 @@
     display: flex;
     align-items: center;
     gap: 32px;
+    max-width: 960px;
     background: var(--blue-card);
     border: 1px solid var(--blue-card-border);
     border-top: 3px solid var(--navy-mid);
@@ -146,6 +182,7 @@
     gap: 12px;
   }
   .nested-grid .card {
+    height: 112px;
     padding: 20px 16px;
     align-items: center;
     justify-content: center;
@@ -171,6 +208,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
     gap: 14px;
+    max-width: 960px;
   }
   .card {
     background: #ffffff;
@@ -257,8 +295,13 @@
 <div class="hero">
   <div class="hero-inner">
     <div class="eyebrow">Penn MEDIATED</div>
-    <h1>Our Partners</h1>
-    <p>Penn MEDIATED brings together funders, schools, and allied research centers across the University of Pennsylvania to advance the science of the information ecosystem and strengthen the foundations of democracy.</p>
+    <h1>About the Center</h1>
+    <h2 class="hero-subhead">Mission Statement</h2>
+    <p>The Penn Center on Media, Technology and Democracy (Penn MEDIATED) is committed to independent research on the information ecosystem and its impact on democracy.</p>
+    <p>Our mission is to advance our collective understanding of the information landscape through cutting-edge science&mdash;then leverage that research to foster a more informed society and strengthen the foundations of democracy. We focus on the media organizations and the online platforms, the incentives and the algorithms, that determine which ideas and beliefs spread, and which don&rsquo;t. Penn MEDIATED's faculty and scholars are distinguished by their use of emerging technology for data-driven research of the information ecosystem, including novel data collections, large-scale cloud computing, and innovative applications of AI.</p>
+    <div class="quote-box">
+      <p>&ldquo;There is a critical societal need to better understand&mdash;and respond to&mdash;the way media and information technologies mediate and even influence global conversations,&rdquo; said <a href="https://president.upenn.edu/meet-president" target="_blank" rel="noopener">J. Larry Jameson</a>, Penn&rsquo;s President. &ldquo;Championing truth and upholding democracy are important elements of Penn&rsquo;s strategic framework, <a href="https://in-principle-and-practice.upenn.edu/" target="_blank" rel="noopener">In Principle and Practice</a>.&rdquo;</p>
+    </div>
   </div>
 </div>
 
@@ -266,11 +309,12 @@
 
   <section class="block">
     <h2>Founding Partners</h2>
+    <p class="lede">Penn MEDIATED was established as the interdisciplinary hub for media, technology, and democracy scholarship and impact at the University of Pennsylvania. Dozens of scholars across seven Penn schools and centers advance the Center's mission and efforts with their research and contributions.</p>
     <a class="founding-card" href="https://knightfoundation.org/" target="_blank" rel="noopener">
       <img src="Logos/KF.png" alt="John S. and James L. Knight Foundation">
       <div class="founding-text">
         <h3>John S. and James L. Knight Foundation</h3>
-        <p>A founding investment that established Penn MEDIATED as Penn's interdisciplinary hub for media, technology, and democracy research.</p>
+        <p>A five-year, $5 million investment from the John S. and James L. Knight Foundation established Penn MEDIATED at the University of Pennsylvania.</p>
       </div>
     </a>
 
