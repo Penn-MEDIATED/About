@@ -8,7 +8,7 @@
 <link rel="canonical" href="https://penn-mediated.github.io/About/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&family=Roboto:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --navy:       #011F5B;
@@ -25,8 +25,8 @@
     --border:     #e0e0e0;
     --link-blue:  #0055A4;
     --max-width:  1140px;
-    --font-serif: 'Merriweather', Georgia, 'Times New Roman', serif;
-    --font-sans:  'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
+    --font-serif: 'EB Garamond', Georgia, 'Times New Roman', serif;
+    --font-sans:  'Roboto', 'Helvetica Neue', Arial, sans-serif;
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { font-size: 16px; scroll-behavior: smooth; }
@@ -82,7 +82,7 @@
   }
   .hero-subhead {
     font-family: var(--font-serif);
-    font-size: 1.6rem;
+    font-size: 1.9rem;
     font-weight: 700;
     color: var(--navy);
     max-width: 960px;
@@ -131,7 +131,7 @@
   section.block:last-child { margin-bottom: 0; }
   section.block h2 {
     font-family: var(--font-serif);
-    font-size: 1.6rem;
+    font-size: 1.9rem;
     font-weight: 700;
     color: var(--navy);
     margin-bottom: 8px;
@@ -155,7 +155,7 @@
   .partner-subsection:last-child { margin-bottom: 0; }
   .partner-subsection h3 {
     font-family: var(--font-serif);
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     font-weight: 700;
     color: var(--navy);
     margin-bottom: 8px;
@@ -348,11 +348,15 @@
     color: var(--navy);
     text-decoration: none;
     padding: 10px 16px;
-    border-top: 1px solid var(--border);
-    background: var(--gold-light);
-    transition: background 0.15s;
+    background: #fdfaf4;
+    box-shadow: inset 0 0 0 0.5px var(--gold);
+    transition: background 0.15s, box-shadow 0.15s;
   }
-  .partner-card .read-more:hover { background: #fbedb0; color: var(--navy); }
+  .partner-card .read-more:hover {
+    background: #fbedb0;
+    color: var(--navy);
+    box-shadow: inset 0 0 0 0.5px var(--gold);
+  }
   .card.logo-only.dark-card:hover { border-color: var(--gold); }
   /* Polarization Research Lab's wordmark is also white-on-transparent, but a
      light gray backdrop (rather than navy) gives it enough contrast to read */
