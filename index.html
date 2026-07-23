@@ -41,7 +41,7 @@
   .hero {
     background: #ffffff;
     border-bottom: 2px solid var(--blue-card-border);
-    padding: 52px 24px 44px;
+    padding: 52px 0 44px;
   }
   .hero-inner {
     max-width: var(--max-width);
@@ -71,6 +71,9 @@
     font-size: 1.6rem;
     font-weight: 700;
     color: var(--navy);
+    margin-top: 36px;
+    padding-top: 28px;
+    border-top: 1px solid var(--blue-card-border);
     margin-bottom: 16px;
   }
   .hero p {
@@ -263,6 +266,58 @@
     background: var(--navy);
     border-color: var(--navy);
   }
+  /* External Partner cards carry two distinct link targets — the logo goes
+     to the partner's own site, a separate link below goes to our blog post
+     about the partnership. Each zone is its own clickable block with its
+     own label and hover state (not a single whole-card hover) so it's clear
+     they lead to two different places. */
+  .partner-card {
+    padding: 0;
+    gap: 0;
+    overflow: hidden;
+  }
+  .partner-card:hover {
+    box-shadow: none;
+    border-color: var(--border);
+  }
+  .partner-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 22px 16px 16px;
+    text-decoration: none;
+    transition: background 0.15s;
+  }
+  .partner-link:hover { background: var(--blue-card); }
+  .partner-link .card-logo {
+    height: 48px;
+    max-width: 100%;
+    margin-bottom: 0;
+  }
+  .partner-link-label {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--label);
+  }
+  .partner-link:hover .partner-link-label { color: var(--navy); }
+  .partner-card .read-more {
+    display: block;
+    text-align: center;
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--navy);
+    text-decoration: none;
+    padding: 10px 16px;
+    border-top: 1px solid var(--border);
+    background: var(--gold-light);
+    transition: background 0.15s;
+  }
+  .partner-card .read-more:hover { background: #fbedb0; color: var(--navy); }
   .card.logo-only.dark-card:hover { border-color: var(--gold); }
   /* Polarization Research Lab's wordmark is also white-on-transparent, but a
      light gray backdrop (rather than navy) gives it enough contrast to read */
@@ -282,7 +337,8 @@
   }
 
   @media (max-width: 640px) {
-    .hero { padding: 40px 20px 32px; }
+    .hero { padding: 40px 0 32px; }
+    .hero-inner { padding: 0 16px; }
     .hero h1 { font-size: 2rem; }
     .hero p { font-size: 1rem; }
     main { padding: 0 16px; margin: 32px auto; }
@@ -342,14 +398,26 @@
     <h2>External Partners</h2>
     <p class="lede">Penn MEDIATED collaborates  with an array of expert, non-academic partners that are dedicated to addressing the complex challenges impacting the information ecosystem and democracy.</p>
     <div class="grid">
-      <a class="card logo-only" href="https://globalnetworkinitiative.org/" target="_blank" rel="noopener"><img class="card-logo" src="Logos/logo-gni.svg" alt="Global Network Initiative"></a>
-      <a class="card logo-only" href="https://dfrlab.org/" target="_blank" rel="noopener"><img class="card-logo" src="Logos/DFRLab logo.png" alt="Atlantic Council Digital Forensic Research Lab"></a>
+      <div class="card partner-card">
+        <a class="partner-link" href="https://globalnetworkinitiative.org/" target="_blank" rel="noopener">
+          <img class="card-logo" src="Logos/logo-gni.svg" alt="Global Network Initiative">
+          <span class="partner-link-label">Visit official site &rarr;</span>
+        </a>
+        <a class="read-more" href="https://infodem.upenn.edu/blog/#gni-membership" target="_blank" rel="noopener">Read about the partnership &rarr;</a>
+      </div>
+      <div class="card partner-card">
+        <a class="partner-link" href="https://dfrlab.org/" target="_blank" rel="noopener">
+          <img class="card-logo" src="Logos/DFRLab logo.png" alt="Atlantic Council Digital Forensic Research Lab">
+          <span class="partner-link-label">Visit official site &rarr;</span>
+        </a>
+        <a class="read-more" href="https://infodem.upenn.edu/blog/#dfrlab-partnership" target="_blank" rel="noopener">Read about the partnership &rarr;</a>
+      </div>
     </div>
   </section>
 
   <section class="block">
-    <h2>Associated Research Centers at Penn</h2>
-    <p class="lede">Penn MEDIATED works alongside a deep bench of related centers and labs across the university studying computational social science, the information ecosystem, and democracy.</p>
+    <h2>Related Research Centers at Penn</h2>
+    <p class="lede">Penn MEDIATED works alongside a deep bench of related centers and labs across the university which advance our understanding of the information ecosystem and democracy.</p>
     <div class="grid">
       <a class="card logo-only dark-card" href="https://css.seas.upenn.edu/" target="_blank" rel="noopener"><img class="card-logo" src="Logos/CSSLab Logo.png" alt="Computational Social Science Lab"></a>
       <a class="card logo-only" href="https://pennhci.com/" target="_blank" rel="noopener"><img class="card-logo" src="Logos/HCI logo.svg" alt="Penn Human Computer Interaction"></a>
@@ -386,6 +454,14 @@
 
     window.addEventListener('load', postHeight);
     window.addEventListener('resize', postHeight);
+
+    // On a first (uncached) visit, web fonts can finish loading and swap in
+    // *after* the load event fires, reflowing text and changing the page's
+    // real height. Re-report the height once fonts are fully ready so the
+    // iframe doesn't end up sized too short (and scrollable) on first load.
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(postHeight);
+    }
 
     if (window.ResizeObserver) {
       new ResizeObserver(postHeight).observe(document.body);
