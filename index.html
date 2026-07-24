@@ -62,14 +62,14 @@
     margin: 0 auto;
     padding: 0 24px;
   }
-  .hero h1 {
-    font-family: var(--font-serif);
-    font-size: 2.6rem;
+  .hero .eyebrow {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
     font-weight: 700;
-    line-height: 1.2;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
     color: #990000;
-    margin-bottom: 14px;
-    max-width: 640px;
+    margin-bottom: 12px;
   }
   .hero-subhead {
     font-family: var(--font-serif);
@@ -77,9 +77,6 @@
     font-weight: 700;
     color: var(--navy);
     max-width: 960px;
-    margin-top: 36px;
-    padding-top: 28px;
-    border-top: 2px solid var(--blue-card-border);
     margin-bottom: 16px;
   }
   .hero p {
@@ -120,7 +117,7 @@
 
   section.block { margin-bottom: 60px; }
   section.block:last-child { margin-bottom: 0; }
-  section.block h2 {
+  section.block h1 {
     font-family: var(--font-serif);
     font-size: 1.9rem;
     font-weight: 700;
@@ -135,8 +132,8 @@
     margin-bottom: 28px;
     line-height: 1.7;
   }
-  section.block h2 + .founding-card,
-  section.block h2 + .grid { margin-top: 20px; }
+  section.block h1 + .founding-card,
+  section.block h1 + .grid { margin-top: 20px; }
 
   /* ─── Partners group: "Partners" is the umbrella heading; Founding /
      External / Related are its three subsections, one level down. Tighter
@@ -144,7 +141,7 @@
      sections) visually clusters them as facets of one category. ─── */
   .partner-subsection { margin-bottom: 40px; }
   .partner-subsection:last-child { margin-bottom: 0; }
-  .partner-subsection h3 {
+  .partner-subsection h2 {
     font-family: var(--font-serif);
     font-size: 1.5rem;
     font-weight: 700;
@@ -158,7 +155,7 @@
      rule, matching top spacing, matching content-column width) so the two
      read as parallel subsections rather than Partners looking like a
      separate page module. */
-  .partners-group > h2 {
+  .partners-group > h1 {
     max-width: 960px;
     margin-top: 36px;
     padding-top: 28px;
@@ -369,9 +366,12 @@
   @media (max-width: 640px) {
     .hero { padding: 40px 0 32px; }
     .hero-inner { padding: 0 16px; }
-    .hero h1 { font-size: 2rem; }
+    .hero-subhead,
+    section.block h1 { font-size: 1.6rem; }
+    .partner-subsection h2 { font-size: 1.25rem; }
     .hero p { font-size: 1rem; }
-    .founding-card { padding: 22px; }
+    .founding-card { padding: 22px; gap: 20px; }
+    .founding-card-header { gap: 20px; }
   }
 </style>
 </head>
@@ -380,10 +380,10 @@
 <div class="hero">
   <div class="hero-inner">
     <header>
-      <h1>About the Center</h1>
+      <div class="eyebrow">About the Center</div>
     </header>
     <main>
-    <h2 class="hero-subhead">Mission Statement</h2>
+    <h1 class="hero-subhead">Mission Statement</h1>
     <p>The Penn Center on Media, Technology and Democracy (Penn MEDIATED) is committed to independent research on the information ecosystem and its impact on democracy.</p>
     <p>Our mission is to advance our collective understanding of the information landscape through cutting-edge science&mdash;then leverage that research to foster a more informed society and strengthen the foundations of democracy. We focus on the media organizations and the online platforms, the incentives and the algorithms, that determine which ideas and beliefs spread, and which don&rsquo;t. Penn MEDIATED's faculty and scholars are distinguished by their use of emerging technology for data-driven research of the information ecosystem, including novel data collections, large-scale cloud computing, and innovative applications of AI.</p>
     <div class="quote-box">
@@ -391,10 +391,10 @@
     </div>
 
   <section class="block partners-group">
-    <h2>Partners</h2>
+    <h1>Partners</h1>
 
     <div class="partner-subsection">
-      <h3>Founding Partners</h3>
+      <h2>Founding Partners</h2>
       <p class="lede">Penn MEDIATED was established as the interdisciplinary hub for media, technology, and democracy scholarship and impact at the University of Pennsylvania. Dozens of scholars across seven Penn schools and centers advance the Center's mission and efforts with their research and contributions.</p>
       <a class="founding-card" href="https://knightfoundation.org/" target="_blank" rel="noopener">
         <img src="Logos/KF.png" alt="John S. and James L. Knight Foundation">
@@ -425,7 +425,7 @@
     </div>
 
     <div class="partner-subsection">
-      <h3>External Partners</h3>
+      <h2>External Partners</h2>
       <p class="lede">Penn MEDIATED collaborates  with an array of expert, non-academic partners that are dedicated to addressing the complex challenges impacting the information ecosystem and democracy.</p>
       <div class="grid">
         <div class="card partner-card">
@@ -446,7 +446,7 @@
     </div>
 
     <div class="partner-subsection">
-      <h3>Related Research Centers at Penn</h3>
+      <h2>Related Research Centers at Penn</h2>
       <p class="lede">Penn MEDIATED works alongside a deep bench of related centers and labs across the university which advance our understanding of the information ecosystem and democracy.</p>
       <div class="grid">
         <a class="card logo-only dark-card" href="https://css.seas.upenn.edu/" target="_blank" rel="noopener"><img class="card-logo" src="Logos/CSSLab Logo.png" alt="Computational Social Science Lab"></a>
