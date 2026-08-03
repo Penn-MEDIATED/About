@@ -121,6 +121,22 @@
     display: flex;
     align-items: center;
   }
+  /* Below this width the two columns would each be too narrow to read,
+     so the quote drops beneath the paragraph instead. min-width is reset
+     to 0 so the 300px floor can't force horizontal overflow once the
+     quote is running full width. */
+  @media (max-width: 860px) {
+    .hero-cols {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 24px;
+    }
+    .hero-col-text,
+    .hero-col-quote {
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+  }
 
   /* ─── Pull Quote ─── */
   .quote-box {
@@ -150,13 +166,6 @@
 
   section.block { margin-bottom: 60px; }
   section.block:last-child { margin-bottom: 0; }
-  section.block h1 {
-    font-family: var(--font-serif);
-    font-size: 1.9rem;
-    font-weight: 700;
-    color: var(--navy);
-    margin-bottom: 8px;
-  }
   section.block p.lede {
     font-family: var(--font-sans);
     font-size: 1.05rem;
@@ -165,11 +174,8 @@
     margin-bottom: 28px;
     line-height: 1.7;
   }
-  section.block h1 + .founding-card,
-  section.block h1 + .grid { margin-top: 20px; }
 
-  /* ─── Partners group: "Partners" is the umbrella heading; Founding /
-     External / Related are its three subsections, one level down. Tighter
+  /* ─── Partner subsections: Founding / External / Related. Tighter
      spacing between them (vs. the 60px used between top-level page
      sections) visually clusters them as facets of one category. ─── */
   .partner-subsection { margin-bottom: 40px; }
@@ -183,12 +189,10 @@
   }
   .partner-subsection p.lede { margin-bottom: 20px; }
 
-  /* "Partners" is a sibling of "Mission Statement" under the "About the
-     Center" heading — give it the same subhead divider treatment (thin
-     rule, matching top spacing, matching content-column width) so the two
-     read as parallel subsections rather than Partners looking like a
-     separate page module. */
-  .partners-group > h1 {
+  /* The Partners group carries the divider that previously sat on its
+     "Partners" heading, so it still reads as a section parallel to the
+     Mission Statement block above it. */
+  .partners-group {
     max-width: var(--max-width);
     margin-top: 36px;
     padding-top: 28px;
@@ -302,15 +306,6 @@
     margin: 0;
     line-height: 1.35;
   }
-  .card a.visit {
-    font-family: var(--font-sans);
-    font-size: 0.82rem;
-    font-weight: 600;
-    color: var(--navy);
-    text-decoration: none;
-    margin-top: auto;
-  }
-  .card a.visit:hover { color: var(--gold); }
   .card .card-logo {
     height: 34px;
     max-width: 140px;
@@ -414,8 +409,7 @@
   @media (max-width: 640px) {
     .hero { padding: 40px 0 32px; }
     .hero-inner { padding: 0 16px; }
-    .hero-subhead,
-    section.block h1 { font-size: 1.6rem; }
+    .hero-subhead { font-size: 1.6rem; }
     .partner-subsection h2 { font-size: 1.25rem; }
     .hero p { font-size: 1rem; }
     .hero p.hero-intro { font-size: 1.2rem; }
@@ -447,8 +441,6 @@
     </div>
 
   <section class="block partners-group">
-    <h1>Partners</h1>
-
     <div class="partner-subsection">
       <h2>Founding Partners</h2>
       <p class="lede">Penn MEDIATED was established as the interdisciplinary hub for media, technology, and democracy scholarship and impact at the University of Pennsylvania. Dozens of scholars across seven Penn schools and centers advance the Center's mission and efforts with their research and contributions.</p>
