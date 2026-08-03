@@ -86,10 +86,27 @@
   }
   .hero p + p { margin-top: 16px; }
 
-  /* ─── Mission row ─── Mission paragraphs and the pull quote share one
-     row, following the same two-column split used on the Research
-     Compendium page title. The quote box sizes to its own content and
-     centers vertically against the body text beside it. */
+  /* Opening mission paragraph runs the full content width above the
+     two-column row, and takes a standfirst treatment — larger and in
+     navy — so it reads as the page's lead statement rather than as the
+     first of two equal body paragraphs. */
+  .hero-intro {
+    max-width: var(--max-width);
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--blue-card-border);
+  }
+  .hero p.hero-intro {
+    font-size: 1.45rem;
+    font-weight: 400;
+    color: #000000;
+    line-height: 1.5;
+  }
+
+  /* ─── Mission row ─── The second mission paragraph and the pull quote
+     share one row, following the same two-column split used on the
+     Research Compendium page title. The quote box sizes to its own
+     content and centers vertically against the paragraph beside it. */
   .hero-cols {
     display: flex;
     gap: 36px;
@@ -401,6 +418,7 @@
     section.block h1 { font-size: 1.6rem; }
     .partner-subsection h2 { font-size: 1.25rem; }
     .hero p { font-size: 1rem; }
+    .hero p.hero-intro { font-size: 1.2rem; }
     .founding-card { padding: 22px; gap: 20px; }
     .founding-card-header { gap: 20px; }
     .panel { padding: 20px; }
@@ -416,9 +434,9 @@
     </header>
     <main>
     <h1 class="hero-subhead">Mission Statement</h1>
+    <p class="hero-intro">The Penn Center on Media, Technology and Democracy (Penn MEDIATED) is committed to independent research on the information ecosystem and its impact on democracy.</p>
     <div class="hero-cols">
       <div class="hero-col-text">
-        <p>The Penn Center on Media, Technology and Democracy (Penn MEDIATED) is committed to independent research on the information ecosystem and its impact on democracy.</p>
         <p>Our mission is to advance our collective understanding of the information landscape through cutting-edge science&mdash;then leverage that research to foster a more informed society and strengthen the foundations of democracy. We focus on the media organizations and the online platforms, the incentives and the algorithms, that determine which ideas and beliefs spread, and which don&rsquo;t. Penn MEDIATED's faculty and scholars are distinguished by their use of emerging technology for data-driven research of the information ecosystem, including novel data collections, large-scale cloud computing, and innovative applications of AI.</p>
       </div>
       <div class="hero-col-quote">
