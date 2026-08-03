@@ -75,22 +75,39 @@
     font-size: 1.9rem;
     font-weight: 700;
     color: var(--navy);
-    max-width: 960px;
+    max-width: var(--max-width);
     margin-bottom: 16px;
   }
   .hero p {
     font-family: var(--font-sans);
     font-size: 1.175rem;
     color: #444;
-    max-width: 960px;
     line-height: 1.7;
   }
   .hero p + p { margin-top: 16px; }
 
+  /* ─── Mission row ─── Mission paragraphs and the pull quote share one
+     row, following the same two-column split used on the Research
+     Compendium page title. The quote box sizes to its own content and
+     centers vertically against the body text beside it. */
+  .hero-cols {
+    display: flex;
+    gap: 36px;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: var(--max-width);
+  }
+  .hero-col-text { flex: 3 1 0; min-width: 0; }
+  .hero-col-quote {
+    flex: 2 1 0;
+    min-width: 300px;
+    display: flex;
+    align-items: center;
+  }
+
   /* ─── Pull Quote ─── */
   .quote-box {
-    margin-top: 24px;
-    max-width: 960px;
+    width: 100%;
     background: #fdfaf4;
     border-left: 4px solid var(--gold);
     padding: 24px 28px;
@@ -399,10 +416,16 @@
     </header>
     <main>
     <h1 class="hero-subhead">Mission Statement</h1>
-    <p>The Penn Center on Media, Technology and Democracy (Penn MEDIATED) is committed to independent research on the information ecosystem and its impact on democracy.</p>
-    <p>Our mission is to advance our collective understanding of the information landscape through cutting-edge science&mdash;then leverage that research to foster a more informed society and strengthen the foundations of democracy. We focus on the media organizations and the online platforms, the incentives and the algorithms, that determine which ideas and beliefs spread, and which don&rsquo;t. Penn MEDIATED's faculty and scholars are distinguished by their use of emerging technology for data-driven research of the information ecosystem, including novel data collections, large-scale cloud computing, and innovative applications of AI.</p>
-    <div class="quote-box">
-      <p>&ldquo;There is a critical societal need to better understand&mdash;and respond to&mdash;the way media and information technologies mediate and even influence global conversations,&rdquo; said <a href="https://president.upenn.edu/meet-president" target="_blank" rel="noopener">J. Larry Jameson</a>, Penn&rsquo;s President. &ldquo;Championing truth and upholding democracy are important elements of Penn&rsquo;s strategic framework, <a href="https://in-principle-and-practice.upenn.edu/" target="_blank" rel="noopener">In Principle and Practice</a>.&rdquo;</p>
+    <div class="hero-cols">
+      <div class="hero-col-text">
+        <p>The Penn Center on Media, Technology and Democracy (Penn MEDIATED) is committed to independent research on the information ecosystem and its impact on democracy.</p>
+        <p>Our mission is to advance our collective understanding of the information landscape through cutting-edge science&mdash;then leverage that research to foster a more informed society and strengthen the foundations of democracy. We focus on the media organizations and the online platforms, the incentives and the algorithms, that determine which ideas and beliefs spread, and which don&rsquo;t. Penn MEDIATED's faculty and scholars are distinguished by their use of emerging technology for data-driven research of the information ecosystem, including novel data collections, large-scale cloud computing, and innovative applications of AI.</p>
+      </div>
+      <div class="hero-col-quote">
+        <div class="quote-box">
+          <p>&ldquo;There is a critical societal need to better understand&mdash;and respond to&mdash;the way media and information technologies mediate and even influence global conversations,&rdquo; said <a href="https://president.upenn.edu/meet-president" target="_blank" rel="noopener">J. Larry Jameson</a>, Penn&rsquo;s President. &ldquo;Championing truth and upholding democracy are important elements of Penn&rsquo;s strategic framework, <a href="https://in-principle-and-practice.upenn.edu/" target="_blank" rel="noopener">In Principle and Practice</a>.&rdquo;</p>
+        </div>
+      </div>
     </div>
 
   <section class="block partners-group">
