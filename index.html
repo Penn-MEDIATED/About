@@ -47,8 +47,7 @@
     outline: 2px solid var(--navy);
     outline-offset: 2px;
   }
-  .partner-link:focus-visible,
-  .partner-card .read-more:focus-visible {
+  .partner-link:focus-visible {
     outline-offset: -2px;
   }
 
@@ -156,7 +155,7 @@
      read as parallel subsections rather than Partners looking like a
      separate page module. */
   .partners-group > h1 {
-    max-width: 960px;
+    max-width: var(--max-width);
     margin-top: 36px;
     padding-top: 28px;
     border-top: 1px solid var(--blue-card-border);
@@ -167,10 +166,9 @@
     display: flex;
     align-items: center;
     gap: 32px;
-    max-width: 960px;
+    max-width: var(--max-width);
     background: var(--blue-card);
     border: 1px solid var(--blue-card-border);
-    border-top: 3px solid var(--navy-mid);
     padding: 32px;
     flex-wrap: wrap;
     transition: box-shadow 0.15s;
@@ -229,12 +227,25 @@
     .founding-card .nested-grid { grid-template-columns: repeat(2, 1fr); }
   }
 
+  /* ─── Panel ─── Tinted container that wraps a card grid, matching the
+     .panel pattern used on the Team and Grants pages. Gives the grid a
+     visible 1280px edge so the narrower 960px prose above it reads as an
+     intro to the panel rather than a mismatched column. Founding Partner
+     cards are already blue-tinted and act as their own panels, so they
+     are intentionally left unwrapped. */
+  .panel {
+    background: var(--blue-card);
+    border: 1px solid var(--blue-card-border);
+    padding: 32px;
+    max-width: var(--max-width);
+  }
+
   /* ─── Card Grid ─── */
   .grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
     gap: 14px;
-    max-width: 960px;
+    max-width: var(--max-width);
   }
   .card {
     background: #ffffff;
@@ -291,17 +302,21 @@
   }
   /* External Partner cards carry two distinct link targets — the logo goes
      to the partner's own site, a separate link below goes to our blog post
-     about the partnership. Each zone is its own clickable block with its
-     own label and hover state (not a single whole-card hover) so it's clear
-     they lead to two different places. */
+     about the partnership. Each zone keeps its own label and inner hover
+     state so it's clear they lead to two different places, while the card
+     itself takes the same outer glow as every other .card on hover. */
+  /* Each External Partner occupies one grid cell holding two separate
+     blocks: the logo card itself, and a standalone "read about the
+     partnership" link below it. */
+  .partner-cell {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
   .partner-card {
     padding: 0;
     gap: 0;
     overflow: hidden;
-  }
-  .partner-card:hover {
-    box-shadow: none;
-    border-color: var(--border);
   }
   .partner-link {
     display: flex;
@@ -312,7 +327,6 @@
     text-decoration: none;
     transition: background 0.15s;
   }
-  .partner-link:hover { background: var(--blue-card); }
   .partner-link .card-logo {
     height: 48px;
     max-width: 100%;
@@ -327,7 +341,7 @@
     color: var(--label);
   }
   .partner-link:hover .partner-link-label { color: var(--navy); }
-  .partner-card .read-more {
+  .partner-cell .read-more {
     display: block;
     text-align: center;
     font-family: var(--font-sans);
@@ -340,7 +354,7 @@
     box-shadow: inset 0 0 0 0.5px var(--gold);
     transition: background 0.15s, box-shadow 0.15s;
   }
-  .partner-card .read-more:hover {
+  .partner-cell .read-more:hover {
     background: #fbedb0;
     color: var(--navy);
     box-shadow: inset 0 0 0 0.5px var(--gold);
@@ -372,6 +386,7 @@
     .hero p { font-size: 1rem; }
     .founding-card { padding: 22px; gap: 20px; }
     .founding-card-header { gap: 20px; }
+    .panel { padding: 20px; }
   }
 </style>
 </head>
@@ -427,27 +442,34 @@
     <div class="partner-subsection">
       <h2>External Partners</h2>
       <p class="lede">Penn MEDIATED collaborates  with an array of expert, non-academic partners that are dedicated to addressing the complex challenges impacting the information ecosystem and democracy.</p>
+      <div class="panel">
       <div class="grid">
-        <div class="card partner-card">
-          <a class="partner-link" href="https://globalnetworkinitiative.org/" target="_blank" rel="noopener">
-            <img class="card-logo" src="Logos/logo-gni.svg" alt="Global Network Initiative">
-            <span class="partner-link-label">Visit official site &rarr;</span>
-          </a>
+        <div class="partner-cell">
+          <div class="card partner-card">
+            <a class="partner-link" href="https://globalnetworkinitiative.org/" target="_blank" rel="noopener">
+              <img class="card-logo" src="Logos/logo-gni.svg" alt="Global Network Initiative">
+              <span class="partner-link-label">Visit official site &rarr;</span>
+            </a>
+          </div>
           <a class="read-more" href="https://infodem.upenn.edu/blog/#gni-membership" target="_blank" rel="noopener">Read about the partnership &rarr;</a>
         </div>
-        <div class="card partner-card">
-          <a class="partner-link" href="https://dfrlab.org/" target="_blank" rel="noopener">
-            <img class="card-logo" src="Logos/DFRLab logo.png" alt="Atlantic Council Digital Forensic Research Lab">
-            <span class="partner-link-label">Visit official site &rarr;</span>
-          </a>
+        <div class="partner-cell">
+          <div class="card partner-card">
+            <a class="partner-link" href="https://dfrlab.org/" target="_blank" rel="noopener">
+              <img class="card-logo" src="Logos/DFRLab logo.png" alt="Atlantic Council Digital Forensic Research Lab">
+              <span class="partner-link-label">Visit official site &rarr;</span>
+            </a>
+          </div>
           <a class="read-more" href="https://infodem.upenn.edu/blog/#dfrlab-partnership" target="_blank" rel="noopener">Read about the partnership &rarr;</a>
         </div>
+      </div>
       </div>
     </div>
 
     <div class="partner-subsection">
       <h2>Related Research Centers at Penn</h2>
       <p class="lede">Penn MEDIATED works alongside a deep bench of related centers and labs across the university which advance our understanding of the information ecosystem and democracy.</p>
+      <div class="panel">
       <div class="grid">
         <a class="card logo-only dark-card" href="https://css.seas.upenn.edu/" target="_blank" rel="noopener"><img class="card-logo" src="Logos/CSSLab Logo.png" alt="Computational Social Science Lab"></a>
         <a class="card logo-only" href="https://pennhci.com/" target="_blank" rel="noopener"><img class="card-logo" src="Logos/HCI logo.svg" alt="Penn Human Computer Interaction"></a>
@@ -459,6 +481,7 @@
         <a class="card logo-only light-card" href="https://polarizationresearchlab.org/" target="_blank" rel="noopener"><img class="card-logo" src="Logos/Polarization Research Lab Logo.png" alt="Polarization Research Lab"></a>
         <a class="card logo-only" href="https://www.asc.upenn.edu/research/centers/safe-lab" target="_blank" rel="noopener"><img class="card-logo" src="Logos/SAFELab Logo.svg" alt="SAFELab"></a>
         <a class="card logo-only tight-pad" href="https://warrencenter.upenn.edu/" target="_blank" rel="noopener"><img class="card-logo" src="Logos/Warren Center Logo.png" alt="Warren Center for Network and Data Sciences"></a>
+      </div>
       </div>
     </div>
 
